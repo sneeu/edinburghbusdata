@@ -22,7 +22,7 @@ class BusStop(object):
             "INSERT INTO busstop (sms, name, x, y) VALUES ('%s', '%s', '%s', '%s');" % (self.sms, self.name, self.x, self.y, )
         ]
         for route in self.routes:
-            r.append("INSERT INTO stop (sms, service) VALUES ('%s', '%s')" % (self.sms, route, ))
+            r.append("INSERT INTO stop (sms, service) VALUES ('%s', '%s');" % (self.sms, route, ))
 
         return '\n'.join(r)
 
