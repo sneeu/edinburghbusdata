@@ -10,8 +10,8 @@ SERVICE_URL = 'http://mybustracker.co.uk/getServicePoints.php?serviceMnemo=%s'
 def get_xml(*args):
     service = args[0]
     url = SERVICE_URL % service
-    writer = open('data/%s.xml' % service, 'a')
-    writer.write(''.join(urllib2.urlopen(url).readlines()))
+    writer = open('data/%s.xml' % service, 'w')
+    writer.write(''.join(urllib2.urlopen(url).readlines()).replace(' xmlns="http://www.w3.org/1999/xhtml"', '').replace('><', '>\n<'))
     writer.close()
 
 
